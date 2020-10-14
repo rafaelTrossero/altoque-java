@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns:adm="http://github.com/adminfaces"
+                
+                >
+  <p:dialog header="Carga de Resultados Actas Nacionales" position="top" widgetVar="dlg2" modal="true"  
+                  responsive="true" draggable="false" height="800">
+
+            <h:form id="resultadosActa">
+
+                <p:outputPanel id="actaResultados" >
+                    <p:remoteCommand name="refreshFooterNac" 
+                                     update="resultadosActa:candidatos:outputTotal6, 
+                                     resultadosActa:candidatos:outputTotal7,
+                                     resultadosActa:candidatos:outputTotal8"/>
+
+
+                    <p:dataTable id="candidatos" var="can" value="#{candidatoListMB.lstCandidatosVotos}" editable="true" 
+                                 editMode="cell" widgetVar="cellCan" >
+
+                        <p:columnGroup type="header" >
+
+                            <p:column headerText="Agrupación"/>
+                            <p:column headerText="Lista"/>
+                            <p:column headerText="Cargo"/>
+                            <p:column headerText="Cantidad de Votos PRESIDENTE Y VICE"/>
+                            <p:column headerText="Cantidad de Votos DIPUTADO NACIONAL "/>
+
+                        </p:columnGroup>
+
+                        <p:ajax event="cellEdit" listener="#{actaFormMB.onCellEdit(can)}" 
+                                oncomplete="refreshFooterNac();"  process="@this"  partialSubmit="true"/>
+
+
+                        <p:column >
+                            <h:outputText value="#{can.candidato.agrupacion}" />
+                        </p:column>
+                        <p:column  >
+                            <h:outputText value="#{can.candidato.lista}" />
+                        </p:column>
+
+                        <p:column visible="true" >
+                            <h:outputText value="#{can.candidato.cargo}" />
+                        </p:column>
+                        <p:focus for="votos"  context="candidatos" />
+                        <p:column  styleClass="#{can.candidato.cargo eq 'diputado_nacional' ? 'grisar' : null}" >
+                            <p:cellEditor  disabled="#{can.candidato.cargo eq 'diputado_nacional'}"   id="votos">
+                                <f:facet name="output"><h:outputText value="#{can.cantidadVotos}" /></f:facet>
+                                <f:facet name="input">
+                                    <p:inputText    
+                                        value="#{can.cantidadVotos}" required="true" 
+                                        type="number"
+                                        placeholder="Ingrese cantidad de votos" style="width:96%" label="Votos">
+                                        <f:validateLength minimum="1" />
+                                    </p:inputText>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column  styleClass="#{can.candidato.cargo eq 'presidente' ? 'grisar' : null}" >
+                            <p:cellEditor disabled="#{can.candidato.cargo eq 'presidente'}"   id="votosD">
+                                <f:facet name="output"><h:outputText value="#{can.cantidadVotos}" /></f:facet>
+                                <f:facet name="input">
+                                    <p:inputText    
+                                        value="#{can.cantidadVotos}" required="true" 
+                                        type="number"
+                                        placeholder="Ingrese cantidad de votos" style="width:96%" label="Votos">
+                                        <f:validateLength minimum="1" />
+                                    </p:inputText>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <f:facet  name="footer">
+                            <b> Total Presidente:
+                                <h:outputText style="font-size: x-large" id="outputTotal6" value="#{actaFormMB.votosPresidente}" />
+                                <p:spacer width="20"></p:spacer>
+                                Total Diputado Nacional:
+                                <h:outputText   style="font-size: x-large" id="outputTotal7" value="#{actaFormMB.votosDipNac}" />
+                                <p:spacer width="40"></p:spacer>
+                                TOTAL DE VOTOS:
+                                <h:outputText   style="font-size: xx-large" id="outputTotal8" value="#{actaFormMB.totalNac}" />
+
+                            </b>
+                        </f:facet>
+
+                    </p:dataTable>
+
+
+                    <div class="ui-sm-12 ui-g-12 ui-g-nopad">     
+                        <div class="ui-sm-12 ui-g-12">
+
+                            <p:commandButton  value="Guardar" id="withIcon"  
+                                              update=":resultadosActa:candidatos, :fActasMan:dtActasManuales" 
+                                              oncomplete="PF('dlg2').hide()" 
+                                              action="#{actaFormMB.guardarActa()}" styleClass="btn-success" icon="fa fa-check" />
+                        </div>
+
+                    </div> 
+
+                </p:outputPanel>
+            </h:form>
+
+        </p:dialog>   
+</ui:composition>

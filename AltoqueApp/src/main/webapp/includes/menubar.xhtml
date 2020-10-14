@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ul class="nav navbar-nav">
+        <li>
+            <p:link outcome="/index" onclick="clearBreadCrumbs()">
+                <i class="fa fa-home"></i>
+                <span>Inicio</span>
+            </p:link>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cars <span
+                    class="caret"></span>
+                <i class="fa fa-car"></i>
+            </a>
+
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <p:link outcome="/pages/car-list">
+                        <span>List</span>
+                        <i class="fa fa-th-list"></i>
+                    </p:link>
+                </li>
+
+                <li>
+                    <p:link outcome="/protected/car-form">
+                        <span>New</span>
+                        <i class="fa fa-plus-circle"></i>
+                    </p:link>
+                </li>
+
+            </ul>
+
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fiscales <span
+                    class="caret"></span>
+                <i class="fa fa-user"></i>
+            </a>
+
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <p:link outcome="/pages/fiscal-list">
+                        <span>List</span>
+                        <i class="fa fa-th-list"></i>
+                    </p:link>
+                </li>
+
+                <li>
+                    <p:link outcome="/protected/fiscal-form">
+                        <span>New</span>
+                        <i class="fa fa-plus-circle"></i>
+                    </p:link>
+                </li>
+            </ul>
+
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dirigentes <span
+                    class="caret"></span>
+                <i class="fa fa-user"></i>
+            </a>
+
+            <ul class="dropdown-menu" role="menu">
+
+                <li>
+                    <p:link outcome="/pages/pastor-list">
+                        <span>List</span>
+                        <i class="fa fa-th-list"></i>
+                    </p:link>
+                </li>
+
+                <li>
+                    <p:link outcome="/protected/pastor-form">
+                        <span>New</span>
+                        <i class="fa fa-plus-circle"></i>
+                    </p:link>
+                </li>
+
+                <li>
+                    <p:link outcome="/protected/dirigente-votante-form">
+                        <span>Asig. votante</span>
+                        <i class="fa fa-plus-circle"></i>
+                    </p:link>
+                </li>
+                <li>
+                    <p:link outcome="/protected/auto-dirigente-form">
+                        <span>Asig. auto</span>
+                        <i class="fa fa-plus-circle"></i>
+                    </p:link>
+                </li>
+                 </ul>
+                </li>
+ 
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actas <span
+                            class="caret"></span>
+                        <i class="fa fa-user"></i>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <p:link outcome="/protected/acta-list">
+                                <span>List</span>
+                                <i class="fa fa-th-list"></i>
+                            </p:link>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+    
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <span
+                    class="caret"></span>
+                <i class="fa fa-user"></i>
+            </a>
+
+            <ul class="dropdown-menu" role="menu">
+
+                <li>
+                    <p:link outcome="/pages/user-list">
+                        <span>List</span>
+                        <i class="fa fa-th-list"></i>
+                    </p:link>
+                </li>
+
+
+                <li>
+                    <p:link outcome="/protected/user-form">
+                        <span>New</span>
+                        <i class="fa fa-plus-circle"></i>
+                    </p:link>
+                </li>
+
+
+            </ul>
+
+        </li>
+        
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Permiso Comando <span
+                    class="caret"></span>
+                <i class="fa fa-address-card"></i>
+            </a>
+
+            <ul class="dropdown-menu" role="menu">
+
+                <li>
+                    <p:link outcome="/protected/permiso-comando-list">
+                        <span>List</span>
+                        <i class="fa fa-th-list"></i>
+                    </p:link>
+                </li>
+
+
+                <li>
+                    <p:link outcome="/protected/permiso-comando-form">
+                        <span>Nuevo</span>
+                        <i class="fa fa-plus-circle"></i>
+                    </p:link>
+                </li>
+
+
+            </ul>
+
+        </li>
+    </ul>
+
+</ui:composition>

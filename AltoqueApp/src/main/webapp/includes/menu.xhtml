@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ul class="sidebar-menu tree" data-widget="tree">
+
+        <li>
+            <p:link outcome="/index" onclick="clearBreadCrumbs()">
+                <i class="fa fa-home"></i>
+                <span>Inicio</span>
+            </p:link>
+        </li>
+        <li class="header">
+            General
+        </li>
+        <li>
+            <p:link outcome="/pages/user-list">
+                <i class="fa fa-user"></i>
+                <span>Usuarios</span>
+            </p:link>
+
+            <p:link outcome="/protected/permiso-comando-list">
+                <i class="fa fa-address-card"></i>
+                <span>Permiso por Comando</span>
+            </p:link>
+            
+            <p:link outcome="/protected/configuraciones">
+                <i class="fa fa-cogs"></i>
+                <span>Configuraciones</span>
+            </p:link>
+
+            <p:link outcome="/pages/car-list">
+                <i class="fa fa-car"></i>
+                <span>Autos</span>
+            </p:link>
+            <p:link outcome="/pages/user-list">
+                <i class="fa fa-user"></i>
+                <span>Usuarios</span>
+            </p:link>
+            <p:link outcome="/pages/pastor-list">
+                <i class="fa fa-user"></i>
+                <span>Dirigentes</span>
+            </p:link>
+            <p:link outcome="/pages/fiscal-list">
+                <i class="fa fa-user"></i>
+                <span>Fiscales</span>
+            </p:link>
+            <p:link outcome="/protected/dirigente-votante-form">
+                <i class="fa fa-users"></i>
+                <span>Asignar votantes a dirigente</span>
+            </p:link>
+            <p:link outcome="/protected/auto-dirigente-form">
+                <i class="fa fa-arrows-h"></i>
+                <span>Asignar autos a dirigente</span>
+            </p:link>
+            <p:link outcome="/protected/votantes-autos">
+                <i class="fa fa-arrows-h"></i>
+                <span>Asignar votantes a Auto</span>
+            </p:link>
+            <!--
+             <p:link outcome="/protected/resultados">
+                <i class="fa fa-bar-chart"></i>
+                <span>Resultados</span>
+            </p:link>   -->
+
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-file-text"></i>
+                    <span>Actas</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <p:link outcome="/protected/actas-fiscales" title="Actas enviadas por fiscales">
+                            <i class="fa fa-files-o"></i>
+                            <span>Actas Enviadas</span>
+                        </p:link>
+                    </li>
+
+
+                    <li>
+                        <p:link outcome="/protected/actas-cargadas" title="Actas cargadas">
+                            <i class="fa fa-tasks"></i>
+                            <span>Actas Cargadas</span>
+                        </p:link>
+                    </li>
+                     <li>
+                        <p:link outcome="/protected/acta-carga-manual" title="Carga Manual">
+                            <i class="fa fa-tasks"></i>
+                            <span>Carga Manual</span>
+                        </p:link>
+                    </li>
+                    <li>
+                        <p:link outcome="/protected/acta-list">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Resultados de Actas</span>
+                        </p:link>
+                    </li>
+                </ul>
+            </li>
+
+        
+        </li>
+        <li>
+                <p:link outcome="/protected/resultados">
+                <i class="fa fa-bar-chart"></i>
+                <span>Resultados Generales</span>
+            </p:link> 
+        </li>
+
+    </ul>
+
+</ui:composition>

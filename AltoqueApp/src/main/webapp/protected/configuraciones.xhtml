@@ -1,0 +1,99 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:adm="http://github.com/adminfaces"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="#{layoutMB.template}">
+
+    <ui:define name="metadata">
+
+
+        <style type="text/css">
+            .ui-grid-row .ui-grid-col-2,
+            .ui-grid-row .ui-grid-col-10 {
+                padding: 0.5em 0;
+                margin-left: 10px;
+            }
+
+            .ui-g-12, .ui-sm-12 {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .ui-datagrid-column .ui-panel.ui-widget-content {
+                border: none;
+            }
+
+
+        </style>
+    </ui:define>
+
+   
+    <ui:define name="title">
+        Configuraciones
+    </ui:define>
+
+    <ui:define name="description">
+        Configuraciones Generales del Sistema
+    </ui:define>
+
+
+    <ui:define name="body">
+
+        <h:form  >
+            <p:spacer height="15px"/>
+            <p:panel header="Mesas por Distrito" styleClass="card no-border">
+
+            <div class="ui-fluid">
+
+                <p:panelGrid  columns="2" columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
+                             layout="grid" styleClass="ui-fluid card">
+                    
+                     <p:outputLabel for="manyBtn" value="Ingreso por:"/>
+                     <p:selectOneButton id="manyBtn" 
+                                        
+                                       value="#{configuracionesMB.tipoIngreso}">
+                        <f:selectItem itemLabel="Rango de N° Mesas" itemValue="rango"/>
+                        <f:selectItem itemLabel="N° Específico de Mesa" itemValue="provincial"/>
+                    </p:selectOneButton>
+                     
+                      <p:outputLabel for="distrito" value="Distrito"/>
+                      <p:inputText type="text" id="distrito" value="#{configuracionesMB.mesaDistrito.distrito}"/>
+                     
+                      <p:outputLabel for="input1" value="Numero de Mesa"/>
+                      <p:inputText type="number" id="input1" value="#{configuracionesMB.numMesaEspecifico}"/>
+                     
+                    <p:outputLabel for="input2" value="Desde Mesa N°"/>
+                    <p:inputText type="number" id="input2" value="#{configuracionesMB.numMesaDesde}"/>
+                    
+                    <p:outputLabel for="input3" value="Hasta Mesa N°"/>
+                    <p:inputText type="number" id="input3" value="#{configuracionesMB.numMesaHasta}"/>
+
+
+                   
+
+
+                  
+                </p:panelGrid>
+
+                
+
+                        <p:commandButton  value="Cargar" id="withIcon"  
+                                          
+                                          process="@form"
+                                          action="#{configuracionesMB.cargarMesasDistrito()}" styleClass="btn-success" icon="fa fa-check" />
+                 
+              
+
+            </div>
+                </p:panel>
+        </h:form>
+       
+       
+    </ui:define>
+
+
+
+</ui:composition>

@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:adm="http://github.com/adminfaces"
+                template="#{layoutMB.template}">
+
+    <ui:define name="title">
+        Fileupload
+    </ui:define> 
+
+     <h:head></h:head>
+
+    <ui:define name="body">
+       
+         <div class="box box-info">
+            <div class="box-header with-border">
+                <h:form enctype="multipart/form-data">
+                    <p:fileUpload fileUploadListener="#{fileuploadMB.handleFileUpload}" mode="advanced"
+                                  dragDropSupport="true" auto="false" onstart="showBar()" oncomplete="hideBar()"
+                                  multiple="true" update="messages" sizeLimit="1000000" fileLimit="3"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                </h:form>
+            </div>
+        </div>
+        
+    </ui:define>
+
+
+</ui:composition>

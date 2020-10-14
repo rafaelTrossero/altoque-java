@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:adm="http://github.com/adminfaces"
+                template="#{layoutMB.template}">
+
+    <ui:define name="metadata">
+        <f:metadata>
+            <f:viewParam name="id" value="#{usuarioBean.id}" converter="javax.faces.Long"/>
+            <!-- use view action if you are in a Java EE 7 server: <f:viewAction action="#{carFormMB.init()}"/>-->
+            <!-- use view action if you are in a Java EE 7 server: <f:event type="preRenderView" listener="#{usuarioBean.init}"/>-->
+            <f:event type="preRenderView" listener="#{usuarioBean.init}"/>
+            <f:viewAction action="#{carFormMB.init()}"/>
+        </f:metadata>
+        <ui:param name="renderFormAsterisks" value="true"/>
+    </ui:define>
+    <ui:define name="title">
+        User form
+    </ui:define>
+    <ui:define name="body">
+
+        <h:form id="form" prependId="false">
+            <p:focus context="@form"/>
+            <p:panel styleClass="box-primary card">
+                <div id="main-buttons" class="hidden-sm hidden-xs">
+                    <p:commandButton value="Guardar" action="#{usuarioBean.save()}" update="@form"
+                                     icon="fa fa-check" styleClass="btn-primary"/>
+                    <p:spacer width="5" rendered="#{usuarioBean.isNew()}"/>
+                    <p:commandButton value="Limpiar" action="#{usuarioBean.clear}" process="@this"
+                                     icon="fa fa-refresh" styleClass="btn-success"
+                                     update="@form" rendered="#{usuarioBean.isNew()}" resetValues="true"/>
+                    <p:spacer width="5" rendered="#{not usuarioBean.isNew()}"/>
+
+                    <p:commandButton value="Desactivar" action="#{usuarioBean.delete()}" process="@this"
+                                     rendered="#{not usuarioBean.isNew()}" icon="fa fa-trash"
+                                     styleClass="btn-danger">
+                        <f:setPropertyActionListener value="true"
+                                                     target="#{facesContext.externalContext.flash.keepMessages}"/>
+                        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                    </p:commandButton>
+                    <p:spacer width="5"/>
+                    <p:commandButton value="Back" immediate="true"
+                                     action="/pages/user-list?faces-redirect=true"
+                                     process="@this"
+                                     icon="fa fa-reply"/>
+                </div>
+                <p:splitButton value="Save" action="#{usuarioBean.save()}" update="@form"
+                               icon="fa fa-check"
+                               styleClass="hidden-md hidden-lg btn-primary">
+                    <p:menuitem value="Reset" action="#{usuarioBean.clear}"
+                                process="@this" update="@form" rendered="#{usuarioBean.isNew()}"
+                                resetValues="true" icon="fa fa-refresh"/>
+                    <p:menuitem value="Delete" action="#{usuarioBean.delete()}" process="@this"
+                                rendered="#{not usuarioBean.isNew()}" icon="fa fa-trash">
+                        <f:setPropertyActionListener value="true"
+                                                     target="#{facesContext.externalContext.flash.keepMessages}"/>
+                        <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                    </p:menuitem>
+                    <p:separator/>
+                    <p:menuitem value="Back" action="user-list?faces-redirect=true"
+                                process="@this" immediate="true"
+                                icon="fa fa-reply"/>
+                </p:splitButton>
+
+                <hr/>
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel for="id" value="ID"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:inputText id="id" value="#{usuarioBean.usuario.id}" readonly="true" styleClass="form-control ui-state-disabled" style="width: 100%"/>
+                            <span class="help-block"> 
+                                <p:message for="id" /> 
+                            </span> 
+                        </div>
+                    </div> 
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad"> 
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Nombre" for="inptNombre"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:inputText id="inptNombre" value="#{usuarioBean.usuario.nombre}" required="true"/>
+                            <span class="help-block"> 
+                                <p:message for="inptNombre" /> 
+                            </span> 
+                        </div>
+                    </div>     
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Apellido" for="inptApellido"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:inputText id="inptApellido" value="#{usuarioBean.usuario.apellido}" required="true"/>
+                            <span class="help-block"> 
+                                <p:message for="inptApellido" /> 
+                            </span>
+                        </div>
+                    </div>     
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Nombre de Usuario" for="inptNombreUsuario"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:inputText id="inptNombreUsuario" value="#{usuarioBean.usuario.usuario}" required="true"/>
+                            <span class="help-block"> 
+                                <p:message for="inptNombreUsuario" /> 
+                            </span>
+                        </div>
+                    </div> 
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Tipo de Usuario" for="somTipoUsuario"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:selectOneMenu    id="somTipoUsuario"  
+                                                converter="entityConverter"
+
+                                                value="#{usuarioBean.usuario.tipousuario}">
+
+                                <f:selectItem itemLabel="Seleccionar.." itemValue=""/>
+                                <f:selectItems  
+                                    value="#{usuarioLstBean.lstSITipoUsuario}"/>
+
+                            </p:selectOneMenu>
+                            <span class="help-block"> 
+                                <p:message for="somTipoUsuario" /> 
+                            </span>
+                        </div>
+                    </div> 
+
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Contraseña" for="inptPass"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:password id="inptPass"
+                                        promptLabel="Por favor ingrese la contraseña"
+                                        weakLabel="Mala"
+                                        goodLabel="Buena"
+                                        strongLabel="Muy buena"
+                                        feedback="true"
+                                        redisplay="true"
+                                        label="Contraseña"
+                                        value="#{usuarioBean.usuario.password}"
+                                        size="30"
+                                        maxlength="30"/>
+                            <span class="help-block"> 
+                                <p:message for="inptPass" /> 
+                            </span>
+                        </div>
+                    </div> 
+
+                    <div class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                        <div class="ui-sm-12 ui-g-11">
+                            <p:outputLabel value="Confirmar Contraseña" for="inptConfirmPass"/>
+                        </div>
+                        <div class="ui-sm-12 ui-g-11" >
+                            <p:password id="inptConfirmPass"
+                                        promptLabel="Por favor ingrese la contraseña"
+                                        feedback="false"
+                                        label="Confirmación de contraseña"
+                                        value="#{usuarioBean.sConfirmarContrasena}"
+                                        size="30"
+                                        redisplay="true"
+                                        maxlength="30"/>
+                            <span class="help-block"> 
+                                <p:message for="inptConfirmPass" /> 
+                            </span>
+                        </div>
+                    </div> 
+                    <h:panelGroup rendered="#{logonMB.superUser}">
+                        <div  class="ui-sm-12 ui-g-6 ui-g-nopad">     
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel value="Super Usuario ?" for="inptSuper"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11" >
+                                <p:selectBooleanButton id="inptSuper" value="#{usuarioBean.usuario.isSuper}" onLabel="SI" offLabel="NO" style="width:60px" />
+                                <span class="help-block"> 
+                                    <p:message for="inptSuper" /> 
+                                </span>
+                            </div>
+                        </div> 
+                    </h:panelGroup>
+
+                </div>
+                <h:panelGroup id="footer" layout="block" styleClass="hidden-sm hidden-md hidden-lg">
+                    <hr/>
+                    <p:splitButton value="Save" action="#{usuarioBean.create()}" update="@form"
+                                   icon="fa fa-check"
+                                   styleClass="hidden-md hidden-lg btn-primary">
+                        <p:menuitem value="Reset" action="#{usuarioBean.clear}"
+                                    process="@this" update="@form" rendered="#{usuarioBean.isNew()}"
+                                    resetValues="true" icon="fa fa-refresh"/>
+                        <p:menuitem value="Delete" action="#{usuarioBean.delete()}" process="@this"
+                                    rendered="#{not usuarioBean.isNew()}" icon="fa fa-trash">
+                            <f:setPropertyActionListener value="true"
+                                                         target="#{facesContext.externalContext.flash.keepMessages}"/>
+                            <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
+                        </p:menuitem>
+                        <p:separator/>
+                        <p:menuitem value="Back" action="car-list?faces-redirect=true"
+                                    process="@this" immediate="true"
+                                    icon="fa fa-reply"/>
+                    </p:splitButton>
+                </h:panelGroup>
+            </p:panel>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
+                <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
+                                 icon="fa fa-check"/>
+                <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
+                                 icon="fa fa-close"/>
+            </p:confirmDialog>
+        </h:form>
+
+
+    </ui:define>
+
+</ui:composition>
