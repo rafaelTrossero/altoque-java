@@ -2,7 +2,7 @@ package com.github.adminfaces.starter.bean;
 
 import com.github.adminfaces.starter.infra.model.Filter;
 import com.github.adminfaces.starter.model.Acta;
-import com.github.adminfaces.starter.model.Car;
+
 import com.github.adminfaces.starter.service.ActaService;
 import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.model.LazyDataModel;
@@ -73,17 +73,7 @@ public class ActaListMB implements Serializable {
         addDetailMessage(numActas + " acta deleted successfully!");
     }
 
-    public void onRowSelect(SelectEvent event) {
-        FacesMessage msg = new FacesMessage("Auto Seleccionado", ((Car) event.getObject()).getPatente());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
 
-    }
-
-    public void onRowUnselect(UnselectEvent event) {
-        FacesMessage msg = new FacesMessage("Auto deseleccionado", ((Car) event.getObject()).getPatente());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-
-    }
 
     public ActaService getActaService() {
         return actaService;

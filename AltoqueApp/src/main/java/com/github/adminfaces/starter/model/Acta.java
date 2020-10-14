@@ -33,21 +33,6 @@ public class Acta implements Serializable {
 
     private Integer cantidad;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "fiscal")
-    private Fiscal fiscal;
-
-    @Column(name = "fecha")
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date fecha;
-    
-     @ManyToOne(optional = false)
-    @JoinColumn(name = "candidato")
-    private Candidatos candidato;
-     
-     @ManyToOne(optional = false)
-    @JoinColumn(name = "acta_fiscal")
-    private FiscalActas acta_fiscal;
 
     private String usuario;
 
@@ -75,21 +60,7 @@ public class Acta implements Serializable {
         this.cantidad = cantidad;
     }
 
-    public Fiscal getFiscal() {
-        return fiscal;
-    }
-
-    public void setFiscal(Fiscal fiscal) {
-        this.fiscal = fiscal;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+   
 
     public String getUsuario() {
         return usuario;
@@ -99,21 +70,7 @@ public class Acta implements Serializable {
         this.usuario = usuario;
     }
 
-    public Candidatos getCandidato() {
-        return candidato;
-    }
-
-    public void setCandidato(Candidatos candidato) {
-        this.candidato = candidato;
-    }
-
-    public FiscalActas getActa_fiscal() {
-        return acta_fiscal;
-    }
-
-    public void setActa_fiscal(FiscalActas acta_fiscal) {
-        this.acta_fiscal = acta_fiscal;
-    }
+   
 
  
     @Override

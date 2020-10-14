@@ -5,13 +5,12 @@
 package com.github.adminfaces.starter.service;
 
 import DAO.ActaFacadeLocal;
-import DAO.CarFacadeLocal;
-import DAO.FiscalFacadeLocal;
+
 import com.github.adminfaces.starter.infra.model.Filter;
 import com.github.adminfaces.starter.infra.model.SortOrder;
 import com.github.adminfaces.starter.infra.security.LogonMB;
 import com.github.adminfaces.starter.model.Acta;
-import com.github.adminfaces.starter.model.Car;
+
 import com.github.adminfaces.template.exception.BusinessException;
 import static com.github.adminfaces.template.util.Assert.has;
 
@@ -103,7 +102,7 @@ public class ActaService implements Serializable {
         }
 
         /*
-        if (has(filter.getEntity())) {
+        if (has(filter.getEntity())) { 
             Acta filterEntity = filter.getEntity();
             if (has(filterEntity.getId())) {
                 Predicate<Car> modelPredicate = (Car c) -> c.getModel().toLowerCase().contains(filterEntity.getId());

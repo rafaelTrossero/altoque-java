@@ -5,7 +5,6 @@
  */
 package com.github.adminfaces.starter.bean;
 
-import DAO.ConfiguracionesFacadeLocal;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,9 +31,7 @@ public class FileuploadMB implements Serializable {
 
     private UploadedFile file;
     private UploadedFile uploadedFile;
-    @EJB
-    private ConfiguracionesFacadeLocal configuracionesFacadeLocal;
-
+   
     public UploadedFile getFile() {
         return file;
     }
@@ -51,13 +48,7 @@ public class FileuploadMB implements Serializable {
         this.uploadedFile = uploadedFile;
     }
 
-    public ConfiguracionesFacadeLocal getConfiguracionesFacadeLocal() {
-        return configuracionesFacadeLocal;
-    }
-
-    public void setConfiguracionesFacadeLocal(ConfiguracionesFacadeLocal configuracionesFacadeLocal) {
-        this.configuracionesFacadeLocal = configuracionesFacadeLocal;
-    }
+   
 
     public void upload() {
         String fileName = uploadedFile.getFileName();
@@ -74,14 +65,14 @@ public class FileuploadMB implements Serializable {
 
     }
 
-    // "acta-Mesa1_019-08-11 00-28-3_F2.jpg"
+    /* "acta-Mesa1_019-08-11 00-28-3_F2.jpg"
     public void save(String imagenName) throws IOException {
         System.out.println("el nombre de la imagen es" + imagenName);
         System.out.println("file es ----" + file);
         // String filename = FilenameUtils.getName(file.getFileName());
         InputStream input = file.getInputstream();
         OutputStream output = new FileOutputStream(
-                new File(configuracionesFacadeLocal.findAll().get(0).getRutaActas(), imagenName));
+               new File(configuracionesFacadeLocal.findAll().get(0).getRutaActas(), imagenName));
 
         try {
             IOUtils.copy(input, output);
@@ -89,5 +80,5 @@ public class FileuploadMB implements Serializable {
             IOUtils.closeQuietly(input);
             IOUtils.closeQuietly(output);
         }
-    }
+    }*/
 }

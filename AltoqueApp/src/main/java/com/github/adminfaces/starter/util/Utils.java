@@ -1,7 +1,7 @@
 package com.github.adminfaces.starter.util;
 
 import RN.UsuariosRNLocal;
-import com.github.adminfaces.starter.model.Car;
+
 import com.github.adminfaces.starter.model.Usuarios;
 import org.omnifaces.util.Messages;
 
@@ -22,7 +22,7 @@ import javax.ejb.EJB;
 @ApplicationScoped
 public class Utils implements Serializable {
 
-    private List<Car> cars;
+   
     private List<Usuarios> users;
     
     @EJB
@@ -31,9 +31,7 @@ public class Utils implements Serializable {
 
     @PostConstruct
     public void init() {
-        cars = new ArrayList<>();
-        IntStream.rangeClosed(1, 50)
-                .forEach(i -> cars.add(create(i)));
+ 
       
         users = new ArrayList<>();
         try {
@@ -49,9 +47,7 @@ public class Utils implements Serializable {
         this.users = users;
     }
 
-    private static Car create(int i) {
-        return new Car(i).model("model " + i).name("name" + i);
-    }
+  
 
     public static void addDetailMessage(String message) {
         addDetailMessage(message, null);
@@ -66,11 +62,7 @@ public class Utils implements Serializable {
         Messages.add(null, facesMessage);
     }
 
-    @Produces
-    public List<Car> getCars() {
-        return cars;
-    }
-    
+   
     @Produces
     public List<Usuarios> getUsers() {
         return users;
