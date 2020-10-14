@@ -2,14 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.github.adminfaces.starter.bean;
+package ManagedBean;
 
 
 import RN.UsuariosRNLocal;
 
-import com.github.adminfaces.starter.model.Usuarios;
-import com.github.adminfaces.starter.service.UserService;
-import static com.github.adminfaces.starter.util.Utils.addDetailMessage;
+import Modelo.Usuarios;
+import Service.UserService;
+import static recursos.Utils.addDetailMessage;
 import static com.github.adminfaces.template.util.Assert.has;
 
 import recursos.Encrypter;

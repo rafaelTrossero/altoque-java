@@ -1,8 +1,8 @@
-package com.github.adminfaces.starter.util;
+package recursos;
 
 import RN.UsuariosRNLocal;
 
-import com.github.adminfaces.starter.model.Usuarios;
+import Modelo.Usuarios;
 import org.omnifaces.util.Messages;
 
 import javax.annotation.PostConstruct;

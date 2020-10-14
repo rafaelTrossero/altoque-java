@@ -1,7 +1,7 @@
-package com.github.adminfaces.starter.infra.security;
+package Seguridad;
 
 import RN.UsuariosRNLocal;
-import com.github.adminfaces.starter.model.Usuarios;
+import Modelo.Usuarios;
 import javax.enterprise.context.ApplicationScoped;
 import javax.security.enterprise.credential.Credential;
 import javax.security.enterprise.credential.UsernamePasswordCredential;

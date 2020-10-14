@@ -1,4 +1,4 @@
-package com.github.adminfaces.starter.infra.security;
+package Seguridad;
 
 import com.github.adminfaces.template.config.AdminConfig;
 import com.github.adminfaces.template.session.AdminSession;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
 
-import static com.github.adminfaces.starter.util.Utils.addDetailMessage;
+import static recursos.Utils.addDetailMessage;
 import static com.github.adminfaces.template.util.Assert.has;
 
 @Named

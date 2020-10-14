@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import com.github.adminfaces.starter.model.Acta;
+import Modelo.Acta;
 import java.util.List;
 import javax.ejb.Local;
 

@@ -1,9 +1,9 @@
-package com.github.adminfaces.starter.bean;
+package ManagedBean;
 
 import com.github.adminfaces.starter.infra.model.Filter;
-import com.github.adminfaces.starter.model.Acta;
+import Modelo.Acta;
 
-import com.github.adminfaces.starter.service.ActaService;
+import Service.ActaService;
 import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import static com.github.adminfaces.starter.util.Utils.addDetailMessage;
+import static recursos.Utils.addDetailMessage;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;

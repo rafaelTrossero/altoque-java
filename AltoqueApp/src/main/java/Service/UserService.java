@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.github.adminfaces.starter.service;
+package Service;
 
 import RN.UsuariosRNLocal;
 import com.github.adminfaces.starter.infra.model.Filter;
 import com.github.adminfaces.starter.infra.model.SortOrder;
 
-import com.github.adminfaces.starter.model.Usuarios;
+import Modelo.Usuarios;
 import com.github.adminfaces.template.exception.BusinessException;
 
 import javax.annotation.security.RolesAllowed;

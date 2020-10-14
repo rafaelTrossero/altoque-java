@@ -6,7 +6,7 @@
 package DAO;
 
 
-import com.github.adminfaces.starter.model.Grupo;
+import Modelo.Grupo;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.github.adminfaces.starter.bean;
+package ManagedBean;
 
-import com.github.adminfaces.starter.infra.security.LogonMB;
-import com.github.adminfaces.starter.model.Acta;
+import Seguridad.LogonMB;
+import Modelo.Acta;
 
-import com.github.adminfaces.starter.service.ActaService;
+import Service.ActaService;
 
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Faces;
@@ -17,7 +17,7 @@ import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
 
-import static com.github.adminfaces.starter.util.Utils.addDetailMessage;
+import static recursos.Utils.addDetailMessage;
 import static com.github.adminfaces.template.util.Assert.has;
 
 

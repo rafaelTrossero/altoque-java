@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import com.github.adminfaces.starter.model.Acta;
+import Modelo.Acta;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

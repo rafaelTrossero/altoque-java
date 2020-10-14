@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.github.adminfaces.starter.bean;
+package ManagedBean;
 
 import DAO.GrupoFacadeLocal;
-import com.github.adminfaces.starter.model.Grupo;
+import Modelo.Grupo;
 
 
 import javax.ejb.EJB;

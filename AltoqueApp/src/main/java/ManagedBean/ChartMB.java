@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.adminfaces.starter.bean;
+package ManagedBean;
 
 import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.event.ItemSelectEvent;

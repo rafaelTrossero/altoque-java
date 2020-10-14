@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import com.github.adminfaces.starter.model.Grupo;
+import Modelo.Grupo;
 import java.util.List;
 import javax.ejb.Local;
 

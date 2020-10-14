@@ -1,4 +1,4 @@
-package com.github.adminfaces.starter.infra.security;
+package Seguridad;
 
 import org.omnifaces.util.Faces;
 
