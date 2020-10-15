@@ -1,0 +1,128 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <section class="content-header" style="padding-left: 0px">
+        <h1 style="font-size: 45px" >aaaaaaaaaaaa
+           <!--  <small> DC:4F:22:65:FA:F0(Copied from <a href="https://almsaeedstudio.com/themes/AdminLTE/index2.html" target="_blank">Admin LTE</a>)</small>-->
+        </h1>
+    </section>
+    <p:spacer height="15px"/>
+    <h:form id="formResultados">
+        <!--  <p:poll interval="120"  update="formResultados" />-->
+    <div class="row">
+
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-blue-gradient">
+                <div class="inner">
+                    <h3>123</h3>
+
+                    <p>Les pareció Genial!</p>
+
+                </div>
+                <div class="icon">
+
+                    <i class="fa fa-heart"></i>
+                </div>
+                 <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+            </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green-gradient">
+                <div class="inner">
+                    <h3>3333</h3>
+
+                    <p>Les pareció Bien</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-smile-o"></i>
+                </div>
+              <!--  <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+            </div>
+        </div>
+        <!-- /.col -->
+
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow-gradient">
+                <div class="inner">
+                    <h3>4444</h3>
+
+                    <p>Les pareció Mal</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-meh-o"></i>              
+                </div>
+               <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+            </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red-gradient">
+                <div class="inner">
+                    <h3>4443</h3>
+
+                    <p>Les pareció Horrible</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-frown-o"></i>
+                </div>
+             <!--   <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+
+                         <p:barChart   model="#{chartJsView.barModel}" style="width: 100%; height: 500px;"/>
+                    </div>
+                    <!-- /.box -->
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <!-- 
+     <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+
+                 <div class="box-body">
+                    <div class="row">
+
+                        <p:pieChart model="#{chartJsView.pieModel}" style="width: 100%; height: 500px;"/>
+                    </div>
+                    
+                </div>
+              
+            </div>
+        </div>
+    </div>
+-->
+</h:form>
+
+
+
+
+
+
+
+</ui:composition>
