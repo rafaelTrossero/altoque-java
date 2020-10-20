@@ -16,18 +16,24 @@ import javax.ejb.Local;
 @Local
 public interface UsuarioFacadeLocal {
 
-    void create(Usuario usuario);
+    void create(Usuario usuarios);
 
-    void edit(Usuario usuario);
+    void edit(Usuario usuarios);
 
-    void remove(Usuario usuario);
+    void remove(Usuario usuarios);
 
     Usuario find(Object id);
 
     List<Usuario> findAll();
+    
+     List<Usuario> findAllActive();
 
     List<Usuario> findRange(int[] range);
 
     int count();
+
+    Usuario findUserByNombreContrasena(String nombre, String contrasena);
     
+     public Usuario findById(Integer id);
+
 }

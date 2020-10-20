@@ -35,6 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
+    ,@NamedQuery(name = "Usuario.findUserByNombreContrasena", query = "SELECT u FROM Usuario u WHERE u.usuario =:usuario AND u.password = :contrasena AND u.isActive = TRUE")
     , @NamedQuery(name = "Usuario.findByCreateTime", query = "SELECT u FROM Usuario u WHERE u.createTime = :createTime")
     , @NamedQuery(name = "Usuario.findByUpdateTime", query = "SELECT u FROM Usuario u WHERE u.updateTime = :updateTime")
     , @NamedQuery(name = "Usuario.findByIsActive", query = "SELECT u FROM Usuario u WHERE u.isActive = :isActive")
@@ -65,7 +66,7 @@ public class Usuario implements Serializable {
     private short isActive;
     @Column(name = "id_usuario_update")
     private Short idUsuarioUpdate;
-   
+
     @Size(max = 100)
     @Column(name = "nombre")
     private String nombre;
@@ -80,17 +81,26 @@ public class Usuario implements Serializable {
     private String telefono;
     @Column(name = "chat_id")
     private Integer chatId;
-    
-     //relacion CuentaUsuario
 
+    @Size(max = 255)
+    @Column(name = "password")
+    private String password;
+    @Column(name = "tipousuario")
+    private String tipousuario;
+    @Size(max = 255)
+    @Column(name = "usuario")
+    private String usuario;
+
+    @Column(name = "is_super", columnDefinition = "boolean default false")
+    private Boolean isSuper;
+
+    //relacion CuentaUsuario
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "usuario")
     private List<CuentaUsuario> cuentaUsuario = new ArrayList<>();
-    
-     //relacion UsuarioRol
 
+    //relacion UsuarioRol
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "usuario")
     private List<UsuarioRol> usuarioRol = new ArrayList<>();
-    
 
     public Usuario() {
     }
@@ -200,6 +210,46 @@ public class Usuario implements Serializable {
         this.usuarioRol = usuarioRol;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getTipousuario() {
+        return tipousuario;
+    }
+
+    public void setTipousuario(String tipousuario) {
+        this.tipousuario = tipousuario;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public Boolean getIsSuper() {
+        return isSuper;
+    }
+
+    public void setIsSuper(Boolean isSuper) {
+        this.isSuper = isSuper;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -224,5 +274,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "Modelo.Usuario[ idUsuario=" + id + " ]";
     }
-    
+
 }

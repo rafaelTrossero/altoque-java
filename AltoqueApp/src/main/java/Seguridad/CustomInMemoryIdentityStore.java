@@ -1,7 +1,9 @@
 package Seguridad;
 
+import Modelo.Usuario;
 import RN.UsuariosRNLocal;
 import Modelo.Usuarios;
+import RN.UsuarioRNLocal;
 import javax.enterprise.context.ApplicationScoped;
 import javax.security.enterprise.credential.Credential;
 import javax.security.enterprise.credential.UsernamePasswordCredential;
@@ -21,7 +23,7 @@ public class CustomInMemoryIdentityStore implements IdentityStore {
     @Inject
     private LogonMB logonMB;
     @EJB
-    private UsuariosRNLocal usuariosRNLocal;
+    private UsuarioRNLocal usuariosRNLocal;
      private String user;
     private String password;    
     
@@ -32,7 +34,7 @@ public class CustomInMemoryIdentityStore implements IdentityStore {
             
             UsernamePasswordCredential login = (UsernamePasswordCredential) credential;
             
-            Usuarios usuAux = usuariosRNLocal.findUserByNombreContrasena(login.getCaller(), Encrypter.encriptar(login.getPasswordAsString()));
+            Usuario usuAux = usuariosRNLocal.findUserByNombreContrasena(login.getCaller(), Encrypter.encriptar(login.getPasswordAsString()));
            
             if (login.getCaller().equals(usuAux.getUsuario()) && Encrypter.encriptar(login.getPasswordAsString()).equals(usuAux.getPassword()) && usuAux.getTipousuario().equals("ADMINISTRADOR")) {
                 System.out.println("es SUPER USUARIO:::"+ usuAux.getIsSuper());
@@ -51,13 +53,23 @@ public class CustomInMemoryIdentityStore implements IdentityStore {
          return CredentialValidationResult.INVALID_RESULT;
     }
 
-    public UsuariosRNLocal getUsuariosRNLocal() {
+    public LogonMB getLogonMB() {
+        return logonMB;
+    }
+
+    public void setLogonMB(LogonMB logonMB) {
+        this.logonMB = logonMB;
+    }
+
+    public UsuarioRNLocal getUsuariosRNLocal() {
         return usuariosRNLocal;
     }
 
-    public void setUsuariosRNLocal(UsuariosRNLocal usuariosRNLocal) {
+    public void setUsuariosRNLocal(UsuarioRNLocal usuariosRNLocal) {
         this.usuariosRNLocal = usuariosRNLocal;
     }
+
+   
 
     public String getUser() {
         return user;
