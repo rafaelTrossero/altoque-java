@@ -59,9 +59,8 @@ public class Usuarios implements Serializable, Comparable<Usuarios> {
     @Size(max = 255)
     @Column(name = "usuario")
     private String usuario;
-    @JoinColumn(name = "id_grupo", referencedColumnName = "id")
-    @ManyToOne
-    private Grupo idGrupo;
+
+   
 
     @Column(name = "is_active")
     private Boolean isActive;
@@ -120,13 +119,7 @@ public class Usuarios implements Serializable, Comparable<Usuarios> {
         this.usuario = usuario;
     }
 
-    public Grupo getIdGrupo() {
-        return idGrupo;
-    }
-
-    public void setIdGrupo(Grupo idGrupo) {
-        this.idGrupo = idGrupo;
-    }
+   
 
     public Boolean getIsActive() {
         return isActive;

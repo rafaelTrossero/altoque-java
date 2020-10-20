@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:p="http://primefaces.org/ui"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
                 template="#{layoutMB.template}">
 
     <ui:param name="renderBreadCrumb" value="false"/>
     <ui:define name="title">
         <h2 class="align-center">
-            Bienvenido a <span class="text-aqua"> NotiVotAAAAAA</span>!
+            <span class="text-aqua"> Campañas Altoque</span>!
             <br/>
             <small>____________________________________________________________ </small>
         </h2>
 
-        <ui:include src="pages/dashboard/dashboard.xhtml"/>
-        <ui:include src="pages/dashboard/dashboard2.xhtml"/>
-        <ui:include src="pages/dashboard/dashboard3.xhtml"/>
+      
 
     </ui:define>
-
+    <ui:define name="body">
+          <ui:include src="pages/dashboard/dashboard.xhtml"/>   
+    </ui:define>
 
 </ui:composition>

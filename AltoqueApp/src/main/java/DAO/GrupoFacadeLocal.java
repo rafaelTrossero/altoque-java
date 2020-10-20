@@ -11,7 +11,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author USUARIO
+ * @author rat_5
  */
 @Local
 public interface GrupoFacadeLocal {

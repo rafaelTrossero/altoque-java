@@ -18,7 +18,7 @@ import javax.persistence.Query;
 @Stateless
 public class UsuariosFacade extends AbstractFacade<Usuarios> implements UsuariosFacadeLocal {
 
-    @PersistenceContext(unitName = "notificacionVotantesPU")
+    @PersistenceContext(unitName = "roi_altoquePU")
     private EntityManager em;
 
     @Override

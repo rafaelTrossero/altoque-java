@@ -5,7 +5,6 @@
  */
 package DAO;
 
-
 import Modelo.Grupo;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -13,12 +12,12 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author USUARIO
+ * @author rat_5
  */
 @Stateless
 public class GrupoFacade extends AbstractFacade<Grupo> implements GrupoFacadeLocal {
 
-    @PersistenceContext(unitName = "notificacionVotantesPU")
+    @PersistenceContext(unitName = "roi_altoquePU")
     private EntityManager em;
 
     @Override

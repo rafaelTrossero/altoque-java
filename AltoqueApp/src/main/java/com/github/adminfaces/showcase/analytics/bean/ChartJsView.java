@@ -11,10 +11,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+
+import org.omnifaces.cdi.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
+
+import javax.inject.Named;
 import org.primefaces.event.ItemSelectEvent;
 import org.primefaces.model.charts.ChartData;
 import org.primefaces.model.charts.axes.cartesian.CartesianScales;
@@ -51,7 +54,8 @@ import org.primefaces.model.charts.radar.RadarChartDataSet;
 import org.primefaces.model.charts.radar.RadarChartModel;
 import org.primefaces.model.charts.radar.RadarChartOptions;
 
-@ManagedBean
+@Named
+@ViewScoped
 public class ChartJsView implements Serializable {
 
     // @Inject
@@ -86,20 +90,23 @@ public class ChartJsView implements Serializable {
 
     @PostConstruct
     public void init() {
-        createPieModel();
-        createPolarAreaModel();
-        createLineModel();
-        createCartesianLinerModel();
+        
         createBarModel();
-        createBarModel2();
-        createHorizontalBarModel();
+        createDonutModel();
+       
+       /* createHorizontalBarModel();
         createStackedBarModel();
         createStackedGroupBarModel();
         createRadarModel();
         createRadarModel2();
         createBubbleModel();
         createMixedModel();
-        createDonutModel();
+        
+        createPieModel();
+        createPolarAreaModel();
+        createLineModel();
+        createCartesianLinerModel();*/
+        
     }
 
     private void createPieModel() {
